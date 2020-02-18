@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adventure Time</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Tomorrow&display=swap" rel="stylesheet">
+        <style>
+            body{
+                background-color: #33C3FF;
+            }
+            h2{
+                margin-top: 12%;
+                font-family: 'Tomorrow',sans-serif;
+            }
+            h3{
+                font-family: 'Roboto mono',monospace;
+                margin-bottom: 1%;
+            }
+            .col{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            ul{
+                margin-left: 0;
+                margin-bottom: 1%;
+                padding-inline-start: 0px;
+                font-family: 'Roboto mono',monospace;
+            }
+           .error,label{
+                font-family: 'Roboto mono',monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col align-self-center">
+                    {%set paths = map_dict[index].openPaths%}
+                        <h2>Hi {{name}}, You are at {{map_dict[index].Name}} with address no: {{index}}</h2>
+                        <h3>Your available paths are:</h3>
+                        {% for i in range(paths|length) %}
+                        <ul>{{map_dict[paths[i]].Name}}  with address no: {{paths[i]}}</ul>
+                        {% endfor %}
+                    <form id="nextMoveForm" action="/ingame">
+                        <label for="nextMove">Make your next move</label>
+                        <input type="text" value="" name="nextMove">
+                        <button class="btn btn-success" type="submit">Move</button>
+                        {% if error %}
+                            <div class="error">
+                                {{error}}
+                            </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

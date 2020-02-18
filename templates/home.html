@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adventure Time</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Tomorrow&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: #33C3FF;
+            }
+            h1{
+                margin-top: 12%;
+                font-family: 'Tomorrow',sans-serif;
+            }
+            .error,li,p,label{
+                font-family: 'Roboto mono',monospace;
+            }
+            li{
+                list-style-type: none;
+            }
+            h3{
+                font-family: 'Roboto mono',monospace;
+                margin-bottom: 0.5%;
+            }
+            .col{
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            ul{
+                margin-left: 0;
+                padding-inline-start: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col align-self-center">
+                    <h1>Welcome to Capture the House</h1>
+                    <h3>Objectives:</h3>
+                    <p>Reach the Living Room of the House</p>
+                    <ul>
+                        <li><h3 id="rules">Rules:</h3></li>
+                        <li>Make sure you remember where you travelled</li>
+                        <li>You will lose if you reach the same address again</li>
+                    </ul>
+                    <h3>Enter your name and start the game</h3>
+                    <form id="nameForm" action="/ingame">
+                        <label for="name">Name:</label>
+                        <input type="text" value="" name="Name">
+                        <button class="btn btn-success" type="submit">Start Game</button>
+                        {% if error %}
+                        <div class="error">
+                            {{error}}
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
