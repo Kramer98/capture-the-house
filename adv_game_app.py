@@ -88,6 +88,3 @@ def ingame():
                 mark_visited(next_move)
                 error=None
                 return render_template('ingame.html',index=next_move,map_dict=map_dict,error=error,name=name)
-
-if __name__ == '__main__':
-  app.run()
