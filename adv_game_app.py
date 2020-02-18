@@ -90,4 +90,4 @@ def ingame():
                 return render_template('ingame.html',index=next_move,map_dict=map_dict,error=error,name=name)
 
 if __name__ == '__main__':
-  app.run(host='127.0.0.1')
+  app.run()
